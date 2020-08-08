@@ -34,3 +34,4 @@
 /Users/andrew.herd/Projects/jQueryTableAmCharts/jQueryTableAmCharts/obj/Debug/netcoreapp3.1/jQueryTableAmCharts.pdb
 /Users/andrew.herd/Projects/jQueryTableAmCharts/jQueryTableAmCharts/obj/Debug/netcoreapp3.1/jQueryTableAmCharts.genruntimeconfig.cache
 /Users/andrew.herd/Projects/jQueryTableAmCharts/jQueryTableAmCharts/obj/Debug/netcoreapp3.1/jQueryTableAmCharts.csproj.CopyComplete
+/Users/andrew.herd/Projects/jQueryTableAmCharts/jQueryTableAmCharts/bin/Debug/netcoreapp3.1/wwwroot/Data/arrays.txt
