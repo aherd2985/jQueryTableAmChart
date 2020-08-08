@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Data\arrays.txt" />

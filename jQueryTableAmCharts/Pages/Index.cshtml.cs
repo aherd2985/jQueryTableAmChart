@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using static jQueryTableAmCharts.Models.ExampleData;
+using System.Text;
 
 namespace jQueryTableAmCharts.Pages
 {
@@ -19,6 +22,7 @@ namespace jQueryTableAmCharts.Pages
 
         public void OnGet()
         {
+            
 
         }
     }
