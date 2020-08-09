@@ -1,8 +1,9 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Salary Dashboard";
 }
+
 <style>
 
     #chartdiv {
@@ -11,10 +12,8 @@
     }
 </style>
 
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Salary Dashboard for the Umbrella Corporation</h1>
 </div>
 
 <br />
@@ -49,7 +48,8 @@
 <br />
 <br />
 
-<script>$(document).ready(function () {
+<script>
+$(document).ready(function () {
         $('#example').DataTable({
             "ajax": '../Data/arrays.txt'
         });
@@ -68,40 +68,14 @@
 
 
         var chart = container.createChild(am4charts.PieChart);
-
         // Add data
-        chart.data = [{
-            "country": "Lithuania",
-            "litres": 500,
-            "subData": [{ name: "A", value: 200 }, { name: "B", value: 150 }, { name: "C", value: 100 }, { name: "D", value: 50 }]
-        }, {
-            "country": "Czech Republic",
-            "litres": 300,
-            "subData": [{ name: "A", value: 150 }, { name: "B", value: 100 }, { name: "C", value: 50 }]
-        }, {
-            "country": "Ireland",
-            "litres": 200,
-            "subData": [{ name: "A", value: 110 }, { name: "B", value: 60 }, { name: "C", value: 30 }]
-        }, {
-            "country": "Germany",
-            "litres": 150,
-            "subData": [{ name: "A", value: 80 }, { name: "B", value: 40 }, { name: "C", value: 30 }]
-        }, {
-            "country": "Australia",
-            "litres": 140,
-            "subData": [{ name: "A", value: 90 }, { name: "B", value: 40 }, { name: "C", value: 10 }]
-        }, {
-            "country": "Austria",
-            "litres": 120,
-            "subData": [{ name: "A", value: 60 }, { name: "B", value: 30 }, { name: "C", value: 30 }]
-        }];
+        chart.data = JSON.parse('@Html.Raw(Json.Serialize(Model.GetGraphData()))');
 
         // Add and configure Series
         var pieSeries = chart.series.push(new am4charts.PieSeries());
-        pieSeries.dataFields.value = "litres";
-        pieSeries.dataFields.category = "country";
+        pieSeries.dataFields.value = "wpSalary";
+        pieSeries.dataFields.category = "workPlace";
         pieSeries.slices.template.states.getKey("active").properties.shiftRadius = 0;
-        //pieSeries.labels.template.text = "{category}\n{value.percent.formatNumber('#.#')}%";
 
         pieSeries.slices.template.events.on("hit", function (event) {
             selectSlice(event.target.dataItem);
@@ -116,9 +90,6 @@
         pieSeries2.dataFields.value = "value";
         pieSeries2.dataFields.category = "name";
         pieSeries2.slices.template.states.getKey("active").properties.shiftRadius = 0;
-        //pieSeries2.labels.template.radius = am4core.percent(50);
-        //pieSeries2.labels.template.inside = true;
-        //pieSeries2.labels.template.fill = am4core.color("#ffffff");
         pieSeries2.labels.template.disabled = true;
         pieSeries2.ticks.template.disabled = true;
         pieSeries2.alignLabels = false;
@@ -161,9 +132,6 @@
             animation.events.on("animationprogress", updateLines);
 
             selectedSlice.events.on("transformed", updateLines);
-
-            //  var animation = chart2.animate({property:"dx", from:-container.pixelWidth / 2, to:0}, 2000, am4core.ease.elasticOut)
-            //  animation.events.on("animationprogress", updateLines)
         }
 
 
