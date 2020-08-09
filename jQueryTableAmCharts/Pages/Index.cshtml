@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Home page";
 }
-    <style>
-        #chartdiv {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
+<style>
+
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
 
 
 <div class="text-center">
@@ -45,11 +46,14 @@
     </tfoot>
 </table>
 
+<br />
+<br />
+
 <script>$(document).ready(function () {
         $('#example').DataTable({
             "ajax": '../Data/arrays.txt'
         });
-});
+    });
 
     am4core.ready(function () {
 
@@ -196,5 +200,4 @@
         });
 
 
-    }); // end am4core.ready()
-    </script>
+    }); // end am4core.ready()</script>
